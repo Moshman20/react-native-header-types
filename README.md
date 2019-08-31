@@ -6,13 +6,11 @@
  
 ## Installation
 
-```sh
-$ npm install react-native-header-types
+`npm install react-native-header-types`
 
 or
 
-$ yarn add react-native-header-types
-```
+`yarn add react-native-header-types`
 
 
 ## Demo
@@ -32,50 +30,44 @@ $ yarn add react-native-header-types
 ### ProgressHeader
 
 
-```sh
- import  React  from  'react';
+```javascript
+import React from 'react'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { ProgressHeader } from 'react-native-header-types'
 
-import {StyleSheet, Text, View, TouchableOpacity } from  'react-native';
-import { ProgressHeader } from  'react-native-header-types'; 
- 
-  
-class  Index  extends  React.Component {
+export default class App extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      isLoading: true,
+      modalVisible: false
+    }
+  }
 
-constructor(props) {
-	 super(props);
-	 this.state  = {
-		 isLoading:true,
-		 modalVisible:  false,
-	};
- }
-
-	render() {
-		 return (
-			<View  style={styles.container}>
-				 <ProgressHeader
-					headerBackgroundColor="transparent"
-					headerTitle="ProgressBar"
-					headerTitleColor="#5DB482"
-					currentprogress="1"
-					totalProgress="5"
-					progressBottomBarColor="#5DB482"
-					progressInactiveColor="#F8F8F8"
-					progressActiveColor="#5DB482"/>
-
-				</View>
-			);
-	}
-
+  render () {
+    return (
+      <View style={styles.container}>
+        <ProgressHeader
+          headerBackgroundColor='transparent'
+          headerTitle='ProgressBar'
+          headerTitleColor='#5DB482'
+          currentprogress='1'
+          totalProgress='5'
+          progressBottomBarColor='#5DB482'
+          progressInactiveColor='#F8F8F8'
+          progressActiveColor='#5DB482'
+        />
+      </View>
+    )
+  }
 }
 
- 
-const  styles  =  StyleSheet.create({
-	container:{
-	flex:  1,
-	backgroundColor:'#f5f5f5',
-	},
-});
- 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f5f5f5'
+  }
+}) 
 ```
 
 ###  API Usage
@@ -95,50 +87,52 @@ const  styles  =  StyleSheet.create({
 ### HeaderView
 
 
-```sh
- import  React  from  'react';
+```javascript
+import React from 'react'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { HeaderView } from 'react-native-header-types'
+import LottieView from 'lottie-react-native'
 
-import {StyleSheet, Text, View, TouchableOpacity } from  'react-native';
-import { HeaderView } from  'react-native-header-types';
-import  LottieView  from  'lottie-react-native';
- 
-  
-class  Index  extends  React.Component {
+export default class App extends React.Component {
+  state = {
+    isLoading: true,
+    modalVisible: false
+  }
 
-constructor(props) {
-	 super(props);
-	 this.state  = {
-		 isLoading:true,
-		 modalVisible:  false,
-	};
- }
-
-	render() {
-		 return (
-			<View  style={styles.container}>
-				<HeaderView 
-					headerBackgroundColor="#8E8E93"
-					headerTitle="Header"
-					headerTitleColor="white"
-					titleCenter="false"
-					rightComponent={<TouchableOpacity onPress={()=>this.hello()} ><Text>right gey</Text></TouchableOpacity>}
-					leftComponent={<TouchableOpacity onPress={()=>this.hello()} >
-					<LottieView source={require('./../../../assets/lottiefiles/menu.json')} autoPlay style={{width:60}} /></TouchableOpacity>}
-					/>
-			 </View>
-			);
-	}
-
+  render () {
+    return (
+      <View style={styles.container}>
+        <HeaderView
+          headerBackgroundColor='#8E8E93'
+          headerTitle='Header'
+          headerTitleColor='white'
+          titleCenter='false'
+          rightComponent={
+            <TouchableOpacity onPress={() => this.hello()}>
+              <Text>right gey</Text>
+            </TouchableOpacity>
+          }
+          leftComponent={
+            <TouchableOpacity onPress={() => this.hello()}>
+              <LottieView
+                source={require('./../../../assets/lottiefiles/menu.json')}
+                autoPlay
+                style={{ width: 60 }}
+              />
+            </TouchableOpacity>
+          }
+        />
+      </View>
+    )
+  }
 }
 
- 
-const  styles  =  StyleSheet.create({
-	container:{
-	flex:  1,
-	backgroundColor:'#f5f5f5',
-	},
-});
- 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f5f5f5'
+  }
+})	
 ```
 
 ###  API Usage
